@@ -139,7 +139,7 @@ class MusicSlab extends ConsumerWidget {
                 return const SizedBox();
               }
               final position = snapshot.data;
-              final duration = songNotifier.audioPlayer!.duration;
+              final duration = songNotifier.audioPlayer?.duration;
               double sliderValue = 0.0;
               if (position != null && duration != null) {
                 sliderValue = position.inMilliseconds / duration.inMilliseconds;

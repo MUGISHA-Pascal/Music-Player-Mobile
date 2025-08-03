@@ -6,22 +6,27 @@ import 'package:music_player_mobile/features/home/view/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
-import 'package:just_audio_background/just_audio_background.dart';
+// import 'package:just_audio_background/just_audio_background.dart';  // Temporarily disabled
 import 'package:path_provider/path_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  try {
-    await JustAudioBackground.init(
-      androidNotificationChannelId: 'com.pascal.app.channel.audio',
-      androidNotificationChannelName: 'Audio playback',
-      androidNotificationOngoing: true,
-    );
-  } catch (e) {
-    print('AudioService initialization error: $e');
-    // Continue without audio background service for now
-  }
+  // Audio background initialization temporarily disabled
+  // try {
+  //   await JustAudioBackground.init(
+  //     androidNotificationChannelId: 'com.pascal.app.channel.audio',
+  //     androidNotificationChannelName: 'Audio playback',
+  //     androidNotificationOngoing: true,
+  //     androidShowNotificationBadge: true,
+  //     notificationColor: const Color(0xFF2196F3),
+  //     preloadArtwork: true,
+  //   );
+  //   print('Audio background initialized successfully');
+  // } catch (e) {
+  //   print('AudioService initialization error: $e');
+  //   // Continue without audio background service for now
+  // }
   
   final dir = await getApplicationDocumentsDirectory();
   Hive.defaultDirectory = dir.path;
